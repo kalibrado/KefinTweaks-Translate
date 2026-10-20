@@ -1,0 +1,117 @@
+[
+  {
+    "key": "watchlist",
+    "label": "Watchlist",
+    "description": "Allows your users to add items to their Watchlist. The Watchlist page shows an overview of all items on a user's Watchlist, as well as their Series Progress and Movie History. It also includes a Statistics page with an overview of your user watched stats."
+  },
+  {
+    "key": "homeScreen",
+    "label": "Enhanced Home Screen",
+    "description": "Add custom home screen sections and a \"discovery engine\" to your Home Page. Create sections based on Genre, Tags, Playlists, Collections or Search Terms for specific Item Types. Use the \"Spotlight\" feature to highlight specific sections with an image carousel/slideshow."
+  },
+  {
+    "key": "search",
+    "label": "Enhanced Search",
+    "description": "Search speed is improved by searching less content types by default. Provides options to specify which content type to search. Fully compatible with both the Jellysearch Search from Jellyfin Enhanced plugin and the Meilisearch plugin."
+  },
+  {
+    "key": "infiniteScroll",
+    "label": "Infinite Scroll",
+    "description": "Adds infinite scrolling to the library pages for Movies and TV"
+  },
+  {
+    "key": "removeContinue",
+    "label": "Remove Continue",
+    "description": "Adds the ability to remove items from the Continue Watching sections"
+  },
+  {
+    "key": "skinManager",
+    "label": "Skin Manager",
+    "description": "Skin selection and management - adds skin dropdown to header and display preferences"
+  },
+  {
+    "key": "headerTabs",
+    "label": "Header Tabs",
+    "description": "Allows direct navigation to specific Tab sections of a given library page. Full support for default Jellyfin landing pages."
+  },
+  {
+    "key": "customMenuLinks",
+    "label": "Custom Menu Links",
+    "description": "Add custom menu links to the left side navigation menu"
+  },
+  {
+    "key": "hamburgerMenu",
+    "label": "Desktop Hamburger Menu",
+    "description": "Shows an Open Menu button on desktop (900px+) that opens a left navigation drawer like the mobile layout, including libraries and custom menu links."
+  },
+  {
+    "key": "games",
+    "label": "Games",
+    "description": "Add a Games link to the side menu for Movie LUT and other library games"
+  },
+  {
+    "key": "breadcrumbs",
+    "label": "Breadcrumbs",
+    "description": "Breadcrumb navigation for Movies, TV and Music. Allows quick navigation between Seasons/Episodes and Albums/Songs."
+  },
+  {
+    "key": "playlist",
+    "label": "Playlist UX",
+    "description": "Improved Playlist page navigation: Items only play when the Play button is pressed. Clicking an item navigates to the item's page."
+  },
+  {
+    "key": "itemDetailsCollections",
+    "label": "Collections on Details Page",
+    "description": "Displays collections on item details pages (Included In section)"
+  },
+  {
+    "key": "flattenSingleSeasonShows",
+    "label": "Episodes On Series Page",
+    "description": "Displays episodes directly on series page. For single-season shows, shows all episodes. For multi-season shows, shows episodes from the season with Next Up episode (or Season 1 if no Next Up)."
+  },
+  {
+    "key": "seriesInfo",
+    "label": "Series Info+",
+    "description": "Adds Season and Episode counts to the Series and Season pages. Also adds an \"Ends at\" time similar to the Episode page."
+  },
+  {
+    "key": "versionPreferences",
+    "label": "Item Version Preferences",
+    "description": "Manage how different versions and editions of your items are displayed. Reorders and sanitizes the media source dropdown on item details pages by prioritized version and edition terms."
+  },
+  {
+    "key": "collections",
+    "label": "Collection Sorting",
+    "description": "Collection sorting functionality on the Collection page"
+  },
+  {
+    "key": "subtitleSearch",
+    "label": "Subtitle Search",
+    "description": "Search and download subtitles directly from the video OSD"
+  },
+  {
+    "key": "backdropLeakFix",
+    "label": "Backdrop Leak Fix",
+    "description": "Fixes memory leaks from backdrop images when tab isn't focused"
+  },
+  {
+    "key": "dashboardButtonFix",
+    "label": "Dashboard Button Fix",
+    "description": "Improved back button behavior on dashboard - prevents navigating back to the new tab browser page"
+  },
+  {
+    "key": "thumbnailScrubber",
+    "label": "Thumbnail Scrubber",
+    "description": "Shows trickplay thumbnail preview when hovering in the bottom 20px of a video card similar to Youtube"
+  },
+  {
+    "key": "watchTogether",
+    "label": "Watch Together",
+    "description": "Link additional Jellyfin accounts to a Watch Together group, then sync watched / in-progress playstate to selected accounts on this device."
+  },
+  {
+    "key": "userManager",
+    "label": "User Manager",
+    "description": "Create reusable user policy templates and apply them when adding users or bulk-editing existing accounts. Import/export comes later."
+  }
+]
