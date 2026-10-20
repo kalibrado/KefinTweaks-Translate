@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Tests d'intégration KefinTweaks-Translate</title>
+<script id="dictionaries" type="application/json">__DICTIONARIES__</script>
+<script>
+window.KefinTweaksTranslateConfig = { language: 'auto', dictionaries: JSON.parse(document.querySelector('#dictionaries').textContent) };
+</script>
+<script src="../kefintweaks-translate.js"></script>
+</head><body>
+<div class="dialogContainer" data-modal-id="test"><div class="dialog" data-name="kefin-modal">
+  <h2 id="heading">Feature Configuration</h2>
+  <button id="save" title="Save">Save</button>
+  <input id="search" placeholder="Search..." value="My custom input">
+  <span id="count">12 Movies</span>
+  <span id="order">Order: 11</span>
+  <span id="free">Dune: Part Two</span>
+  <div class="card"><span id="media-title">Watchlist</span></div>
+  <span class="material-icons" id="icon">settings</span>
+  <textarea id="textarea">Watchlist</textarea>
+</div></div>
+<div id="outside">Save</div>
+<div id="dynamic"></div><pre id="results"></pre>
+<script>
+(async () => {
+  const checks = [];
+  const assert = (name, condition) => checks.push({ name, ok: Boolean(condition) });
+  const tick = () => new Promise(resolve => setTimeout(resolve, 200));
+  await window.KefinTweaksTranslate.ready; await tick();
+  const text = id => document.getElementById(id).textContent;
+  assert('automatic French locale', window.KefinTweaksTranslate.language === 'fr');
+  assert('heading translated', text('heading') === 'Configuration des fonctionnalités');
+  assert('button translated', text('save') === 'Enregistrer');
+  assert('title translated', document.getElementById('save').title === 'Enregistrer');
+  assert('placeholder translated', document.getElementById('search').placeholder === 'Rechercher…');
+  assert('input value unmodified', document.getElementById('search').value === 'My custom input');
+  assert('counter translated', text('count') === '12 films');
+  assert('dynamic template translated', text('order') === 'Ordre : 11');
+  assert('media title preserved', text('media-title') === 'Watchlist');
+  assert('free text preserved', text('free') === 'Dune: Part Two');
+  assert('material icon preserved', text('icon') === 'settings');
+  assert('textarea content preserved', text('textarea') === 'Watchlist');
+  assert('Jellyfin UI outside scopes preserved', text('outside') === 'Save');
+  document.querySelector('#dynamic').innerHTML = `<div class="dialogContainer" data-modal-id="new"><div class="dialog" data-name="kefin-modal"><button id="late">Cancel</button></div></div>`;
+  await tick();
+  assert('dynamic modal translated', text('late') === 'Annuler');
+  await window.KefinTweaksTranslate.setLanguage('en'); await tick();
+  assert('switch to English restores original', text('heading') === 'Feature Configuration' && text('save') === 'Save' && text('late') === 'Cancel');
+  await window.KefinTweaksTranslate.setLanguage('fr-CA'); await tick();
+  assert('language family fallback to French', text('heading') === 'Configuration des fonctionnalités');
+  document.getElementById('heading').textContent = 'Delete'; await tick();
+  assert('upstream re-render translated', text('heading') === 'Supprimer');
+  await window.KefinTweaksTranslate.setLanguage('zz'); await tick();
+  assert('unsupported language falls back to English', window.KefinTweaksTranslate.language === 'en' && text('heading') === 'Delete');
+  window.KefinTweaksTranslate.stop();
+  const before = text('save'); document.getElementById('save').textContent = 'Save';await tick();
+  assert('stop detaches observer', text('save') === 'Save');
+  await window.KefinTweaksTranslate.setLanguage('fr');window.KefinTweaksTranslate.resume();await tick();
+  assert('resume restores translation', text('save') === 'Enregistrer');
+  const failures = checks.filter(c => !c.ok);
+  const out = document.getElementById('results');
+  out.textContent = JSON.stringify({ count: checks.length, pass: checks.length - failures.length, failures });
+  out.setAttribute('data-result', failures.length ? 'FAIL' : 'PASS');
+})().catch(e => {let out=document.getElementById('results'); out.setAttribute('data-result','ERROR');out.textContent=String(e.stack||e);});
+</script></body></html>
