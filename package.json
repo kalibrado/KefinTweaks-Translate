@@ -1,6 +1,6 @@
 {
   "name": "kefintweaks-translate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Independent translation layer for KefinTweaks",
   "private": true,
   "license": "MIT",
