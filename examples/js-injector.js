@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.0/';
+  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.1/';
   window.KefinTweaksTranslateConfig = {
     language: 'auto', // Utiliser 'fr' pour forcer le français
     baseUrl
