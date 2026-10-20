@@ -53,7 +53,7 @@ Installez KefinTweaks via JS Injector comme d'habitude. Créez une **entrée Jav
 })();
 ```
 
-**Important** : l'installation pointe vers un commit GitHub précis tant que le tag `v0.1.0` n'est pas publié. Le code et les dictionnaires sont ainsi lus depuis la même révision. Évitez `@main` et `@latest` pour une installation stable.
+**Important** : l'installation pointe désormais vers le tag GitHub `v0.1.0`. Le code et les dictionnaires sont ainsi lus depuis la même version publiée. Évitez `@main` et `@latest` pour une installation stable.
 
 L'accès HTTP(S) aux fichiers JSON doit être autorisé par le client Jellyfin (notamment sur desktop/mobile). Si le chargement échoue, le script laisse les textes anglais.
 
