@@ -1,5 +1,5 @@
 /**
- * KefinTweaks-Translate v0.1.0
+ * KefinTweaks-Translate v0.1.1
  * Independent UI translation layer for the KefinTweaks Jellyfin web extension.
  * Upstream target: KefinTweaks v0.5.2. MIT License.
  * Does not modify KefinTweaks settings, Jellyfin API responses or user input.
@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const VERSION = '0.1.0';
+  const VERSION = '0.1.1';
   if (window.KefinTweaksTranslate) return;
 
   const settings = window.KefinTweaksTranslateConfig || {};
