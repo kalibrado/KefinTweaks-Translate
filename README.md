@@ -2,7 +2,7 @@
 
 Traductions multilingues pour [KefinTweaks](https://github.com/ranaldsgift/KefinTweaks), sans fork ni modification des scripts officiels. **Projet communautaire non officiel.**
 
-> **Statut** : prototype v0.1.0, basé sur les chaînes de KefinTweaks **v0.5.2**. Première locale : **français**. Tests sur une instance Jellyfin réelle encore nécessaires.
+> **Statut** : version v0.1.1, basé sur les chaînes de KefinTweaks **v0.5.2**. Première locale : **français**. Tests sur une instance Jellyfin réelle encore nécessaires.
 
 ## Fonctionnalités
 
@@ -37,7 +37,7 @@ Installez KefinTweaks via JS Injector comme d'habitude. Créez une **entrée Jav
 ```javascript
 (() => {
   'use strict';
-  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.0/';
+  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.1/';
   window.KefinTweaksTranslateConfig = {
     language: 'auto', // Utiliser 'fr' pour forcer le français
     baseUrl
@@ -53,7 +53,7 @@ Installez KefinTweaks via JS Injector comme d'habitude. Créez une **entrée Jav
 })();
 ```
 
-**Important** : l'installation pointe désormais vers le tag GitHub `v0.1.0`. Le code et les dictionnaires sont ainsi lus depuis la même version publiée. Évitez `@main` et `@latest` pour une installation stable.
+**Important** : l'installation pointe désormais vers le tag GitHub `v0.1.1`. Le code et les dictionnaires sont ainsi lus depuis la même version publiée. Évitez `@main` et `@latest` pour une installation stable.
 
 L'accès HTTP(S) aux fichiers JSON doit être autorisé par le client Jellyfin (notamment sur desktop/mobile). Si le chargement échoue, le script laisse les textes anglais.
 
@@ -90,6 +90,8 @@ npm run check
 ```
 
 Des tests Node intégrés (sans dépendances npm) vérifient la structure des JSON, les chaînes, les modèles et la conversion de langue. Un banc d'essai expérimental Chromium est fourni dans `tests/run-browser.cjs` mais n'est pas inclus à la CI tant qu'il n'a pas été validé de manière reproductible.
+
+La **v0.1.1** traduit les 23 descriptions et l'aide du panneau « Configuration des fonctionnalités » de KefinTweaks v0.5.2. D'autres écrans peuvent contenir des libellés encore en anglais.
 
 ## Limites actuelles
 
