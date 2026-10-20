@@ -1,0 +1,12 @@
+{
+  "name": "kefintweaks-translate",
+  "version": "0.1.0",
+  "description": "Independent translation layer for KefinTweaks",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "check": "node --check kefintweaks-translate.js && npm test",
+    "test": "node --test tests/*.test.cjs",
+    "test:browser": "node tests/run-browser.cjs"
+  }
+}
