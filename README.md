@@ -30,24 +30,34 @@ KefinTweaks-Translate/
 └── README.md
 ```
 
-## Installation après publication GitHub
+## Installation via GitHub / jsDelivr
 
 Installez KefinTweaks via JS Injector comme d'habitude. Créez une **entrée JavaScript Injector séparée** appelée `KefinTweaks-Translate`, sans modifier les entrées officielles KefinTweaks :
 
 ```javascript
-window.KefinTweaksTranslateConfig = {
-  language: 'auto',
-  baseUrl: 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.0/'
-};
-const s = document.createElement('script');
-s.src = window.KefinTweaksTranslateConfig.baseUrl + 'kefintweaks-translate.js';
-s.async = true;
-document.head.appendChild(s);
+(() => {
+  'use strict';
+  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@5a392e0a5c99992ac28bb1d1cf300d05e84c1567/';
+  window.KefinTweaksTranslateConfig = {
+    language: 'auto', // Utiliser 'fr' pour forcer le français
+    baseUrl
+  };
+  console.info('[KefinTweaks-Translate/Loader] Chargement :', baseUrl);
+
+  const script = document.createElement('script');
+  script.src = baseUrl + 'kefintweaks-translate.js';
+  script.async = true;
+  script.onload = () => console.info('[KefinTweaks-Translate/Loader] Script téléchargé');
+  script.onerror = () => console.error('[KefinTweaks-Translate/Loader] Script inaccessible :', script.src);
+  (document.head || document.documentElement).appendChild(script);
+})();
 ```
 
-**Attention** : l'URL ci-dessus fonctionnera **uniquement après** création du dépôt et publication du tag `v0.1.0`. Ne pas utiliser `@main` ou `@latest` en production sans accepter le risque de mises à jour non testées.
+**Important** : l'installation pointe vers un commit GitHub précis tant que le tag `v0.1.0` n'est pas publié. Le code et les dictionnaires sont ainsi lus depuis la même révision. Évitez `@main` et `@latest` pour une installation stable.
 
 L'accès HTTP(S) aux fichiers JSON doit être autorisé par le client Jellyfin (notamment sur desktop/mobile). Si le chargement échoue, le script laisse les textes anglais.
+
+Pour vérifier l'injection, recherchez `KefinTweaks-Translate` dans la console du navigateur. Le chargeur affiche le démarrage et une erreur explicite en cas d'échec. Pour isoler un problème de détection automatique, définissez temporairement `language: 'fr'`.
 
 ### Utilisation en console
 
