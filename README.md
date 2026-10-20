@@ -37,7 +37,7 @@ Installez KefinTweaks via JS Injector comme d'habitude. Créez une **entrée Jav
 ```javascript
 (() => {
   'use strict';
-  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@5a392e0a5c99992ac28bb1d1cf300d05e84c1567/';
+  const baseUrl = 'https://cdn.jsdelivr.net/gh/kalibrado/KefinTweaks-Translate@v0.1.0/';
   window.KefinTweaksTranslateConfig = {
     language: 'auto', // Utiliser 'fr' pour forcer le français
     baseUrl
