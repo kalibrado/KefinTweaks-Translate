@@ -9,7 +9,9 @@ permissions:
 
 jobs:
   create-release-tag:
-    if: github.repository == 'kalibrado/KefinTweaks-Translate' && github.event.head_commit.message == 'chore(release): publish v0.1.0 tag'
+    if: >-
+      github.repository == 'kalibrado/KefinTweaks-Translate' &&
+      github.event.head_commit.message == 'chore(release): publish v0.1.0 tag'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout and fetch refs
@@ -20,8 +22,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git cat-file -e 59e56c0cade2053d02acd9fbebba654ab85108aa^{commit}
-          test "$(git rev-parse 59e56c0cade2053d02acd9fbebba654ab85108aa:package.json | head -c 0; git show 59e56c0cade2053d02acd9fbebba654ab85108aa:package.json | grep -c '"version": "0.1.0"')" -ge 1
+          target='59e56c0cade2053d02acd9fbebba654ab85108aa'
+          git cat-file -e "${target}^{commit}"
+          git show "${target}:package.json" | grep -q '"version": "0.1.0"'
           npm run check
       - name: Publish annotated tag on validated commit
         shell: bash
